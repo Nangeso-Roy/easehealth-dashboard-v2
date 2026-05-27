@@ -1,0 +1,35 @@
+# Environment variables and secrets
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Real data — ignore raw pulls and anything new dropped in here,
+# but allow the three deployment files into the (private) repo.
+data/real/*
+!data/real/.gitkeep
+!data/real/tier1_redacted.csv
+!data/real/kobo_tagged.xlsx
+!data/real/luwero_adm4.geojson
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
