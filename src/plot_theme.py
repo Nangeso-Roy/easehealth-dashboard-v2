@@ -154,11 +154,27 @@ def register():
 # ---------------------------------------------------------------------------
 
 PLOTLY_CONFIG = {
-    "displayModeBar": False,
+    # Mode bar appears on hover so users can save a chart as PNG.
+    # Hidden by default to keep the dashboard clean; revealed on hover.
+    "displayModeBar": "hover",
     "displaylogo": False,
     "responsive": True,
     "scrollZoom": False,
     "doubleClick": False,
     "showAxisDragHandles": False,
     "showAxisRangeEntryBoxes": False,
+    # Trim the toolbar down to just the things that matter for a static dashboard:
+    # we keep the camera (download PNG) and the autoscale/reset buttons, and drop
+    # the rest (zoom box, pan, lasso, select, etc.) to avoid implying interactive
+    # exploration the charts aren't designed for.
+    "modeBarButtonsToRemove": [
+        "zoom2d", "pan2d", "select2d", "lasso2d",
+        "zoomIn2d", "zoomOut2d", "autoScale2d",
+    ],
+    # Cleaner filename and higher resolution for the downloaded image.
+    "toImageButtonOptions": {
+        "format": "png",
+        "filename": "easehealth_chart",
+        "scale": 2,
+    },
 }
